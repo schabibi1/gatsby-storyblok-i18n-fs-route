@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+.drop-cap:first-letter {
+  font-size: 5rem;
+  float: left;
+  line-height: 2rem;
+  @apply font-serif;
+  @apply text-primary;
+  @apply mr-4;
+  @apply my-8;
+}
+
+.bg-white-half {
+  background: linear-gradient(to bottom, #fff 0%, #fff 50%, transparent 50%)
+}
+
+blockquote {
+  @apply text-4xl;
+  @apply text-primary;
+  @apply font-bold;
+  @apply font-serif;
+  @apply py-12;
+  @apply text-center;
+}
