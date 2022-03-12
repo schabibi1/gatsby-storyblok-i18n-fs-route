@@ -23,7 +23,9 @@ export default function useStoryblok(originalStory, location) {
     const { StoryblokBridge } = window
 
     if (typeof StoryblokBridge !== 'undefined') {
-      const storyblokInstance = new StoryblokBridge()
+      const storyblokInstance = new StoryblokBridge({
+        resolveRelations: "posts-list.posts"
+      })
 
       storyblokInstance.on(['published', 'change'], (event) => {
         // reloade project on save an publish

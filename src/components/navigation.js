@@ -1,7 +1,8 @@
 import Link from 'gatsby-link'
 import React from "react"
+import rewriteSlug from '../lib/rewriteSlug'
 
-const Nav = () => (
+const Nav = ({ settings, lang }) => (
   <header className="w-full bg-white">
     <nav className="" role="navigation">
       <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
@@ -31,19 +32,28 @@ const Nav = () => (
         </div>
         <div className="w-full md:w-auto md:flex-grow md:flex md:items-center">
           <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:mr-4 md:ml-auto lg:mr-8 md:border-0">
+            {settings &&
+              settings.content.main_navi.map((navitem, index) => (
+                <li key={index}>
+                  <Link to={`/${rewriteSlug(navitem.link.cached_url)}`} prefetch="true" className="block px-4 py-1 md:p-2 lg:px-8">
+                    {navitem.name}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+          <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0">
             <li>
-              <Link href="/">
-                <a className="block px-4 py-1 md:p-2 lg:px-8">Home</a>
+              <Link to="/"
+                className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${lang === 'en' ? "bg-primary text-white" : ""}`}
+              >
+                EN
               </Link>
             </li>
             <li>
-              <Link href="/blog/about">
-                <a className="block px-4 py-1 md:p-2 lg:px-8">About</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/my-trip-2022">
-                <a className="block px-4 py-1 md:p-2 lg:px-8">My Trip</a>
+              <Link to="/de"
+                className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${lang === 'de' ? "bg-primary text-white" : ""}`}
+              >
+                DE
               </Link>
             </li>
           </ul>

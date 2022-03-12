@@ -11,13 +11,14 @@ import Seo from "../components/seo"
 const IndexPage = ({ data, location }) => {
   let story = data.storyblokEntry
   story = useStoryblok(story, location)
+  console.log(data)
 
   const components = story.content.body.map(blok => {
     return (<DynamicComponent blok={blok} key={blok._uid} />)
   })
 
   return (
-    <Layout>
+    <Layout location={location}>
       <div {...sbEditable(story.content)}>
         <Seo title="Home" />
         {components}
@@ -30,7 +31,7 @@ export default IndexPage
 
 export const query = graphql`
   query HomeQuery {
-    storyblokEntry(full_slug: {eq: "home"}) {
+    storyblokEntry(full_slug: { eq: "en/" }) {
       content
       name
     }
