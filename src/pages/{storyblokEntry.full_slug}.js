@@ -23,25 +23,14 @@ export default function StoryblokEntry({ data, location }) {
     const pageArr = pagePath.split()
     return pageArr
   })
+  console.log(postData)
 
   const Templates = () => {
-    if (story.name == 'Home') {
-      // pageData.forEach((edge) => {
-      //   const page = edge.node.field_component
-      //   return page
-      // })
-      const pageComponents = story.content.body.map(blok => {
-        return (<DynamicComponent blok={blok} key={blok._uid} />)
-      })
+    if (story.name === 'Home') {
+      const pageComponents = story.content.body.map(blok => <DynamicComponent blok={blok} key={blok._uid} />)
       return <>{pageComponents}</>
-    } else if (story.name != 'Home') {
-      // postData.forEach((edge) => {
-      //   const blogpost = edge.node.field_component
-      //   return blogpost
-      // })
-      const blogpostComponent = postData.map(blok => {
-        return (<DynamicComponent blok={blok} key={blok._uid} />)
-      })
+    } else if (story.name !== 'Home') {
+      const blogpostComponent = postData.map(blok => <DynamicComponent blok={blok} key={blok._uid} />)
       return <>{blogpostComponent}</>
     }
   }
