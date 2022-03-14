@@ -11,7 +11,6 @@ import Seo from "../components/seo"
 const IndexPage = ({ data, location }) => {
   let story = data.storyblokEntry
   story = useStoryblok(story, location)
-  console.log(data)
 
   const components = story.content.body.map(story => {
     return (<DynamicComponent story={story} key={story._uid} />)

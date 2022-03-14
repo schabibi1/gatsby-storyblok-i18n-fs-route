@@ -19,16 +19,8 @@ const Components = {
   'featured-articles': FeaturedArticles,
   'posts-list': PostsList
 }
-// blok -> page
-// story -> blogpost
-const DynamicComponent = ({ story }) => {
-  // console.log(blok)
-  console.log(story)
-  // if (typeof Components[blok.component] || Components[story.component] !== 'undefined') {
-  //   const Component = Components[blok.component]
-  //   return <div {...sbEditable(blok)}><Component blok={blok} /></div>
-  // }
 
+const DynamicComponent = ({ story }) => {
   if (typeof Components[story.component] !== 'undefined') {
     const Component = Components[story.component]
     return <div {...sbEditable(story)}><Component story={story} /></div>

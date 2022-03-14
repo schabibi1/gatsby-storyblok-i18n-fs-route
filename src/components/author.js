@@ -3,8 +3,6 @@ import { sbEditable } from "@storyblok/storyblok-editable"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Author = ({ story }) => {
-  // if (typeof blok.node.content === "string") blok.node.content = JSON.parse(blok.node.content)
-
   const { authors } = useStaticQuery(graphql`
       {
         authors: allStoryblokEntry(filter: {field_component: {eq: "author"}}) {

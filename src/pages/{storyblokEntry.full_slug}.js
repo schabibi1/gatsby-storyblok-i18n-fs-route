@@ -48,7 +48,7 @@ export const query = graphql`
       name
       full_slug
       content
-    },
+    }
     posts: allStoryblokEntry(filter: {field_component: {eq: "blogpost"}}) {
       edges {
         node {

@@ -1,9 +1,10 @@
 import Link from 'gatsby-link'
 import React from "react"
-import rewriteSlug from '../lib/rewriteSlug'
+// import rewriteSlug from '../lib/rewriteSlug'
 
 const Nav = ({ settings, lang }) => (
   <header className="w-full bg-white">
+    <>{console.log(settings)}</>
     <nav className="" role="navigation">
       <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
         <div className="mr-4 md:mr-8">

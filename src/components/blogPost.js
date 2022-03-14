@@ -1,37 +1,9 @@
 import React from "react"
-import { sbEditable } from "@storyblok/storyblok-editable";
+import { sbEditable } from "@storyblok/storyblok-editable"
 import { render } from "storyblok-rich-text-react-renderer"
-// import { useStaticQuery, graphql } from "gatsby"
 import Author from "./author"
 
 const BlogPost = ({ story }) => {
-  // if (typeof blok.node.content === "string") blok.node.content = JSON.parse(blok.node.content)
-  console.log(story)
-
-  // const { posts } = useStaticQuery(graphql`
-  //     {
-  //       posts: allStoryblokEntry(filter: {field_component: {eq: "blogpost"}}) {
-  //         edges {
-  //           node {
-  //             id
-  //             uuid
-  //             name
-  //             slug
-  //             field_component
-  //             full_slug
-  //             content
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `)
-
-  // let thisPost = posts.edges.filter(({ node }) => {
-  //   if (typeof node.content === "string") node.content = JSON.parse(node.content)
-  //   return node.id === blok.node.id
-  // })
-  // let postContent = thisPost.length ? thisPost[0].node.content : {};
-
   return (
     <div {...sbEditable(story)}>
       <div className="bg-white-half w-full">

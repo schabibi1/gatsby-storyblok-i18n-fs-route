@@ -1,6 +1,6 @@
 import React from 'react'
 import { sbEditable } from "@storyblok/storyblok-editable";
-import ArticleTeaser from './ArticleTeaser'
+import ArticleTeaser from './articleTeaser'
 
 const FeaturedArticles = ({ story }) => {
   return (
