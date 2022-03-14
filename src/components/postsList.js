@@ -2,11 +2,11 @@ import React from "react"
 import { sbEditable } from "@storyblok/storyblok-editable";
 import { useStaticQuery, graphql } from "gatsby"
 
-import rewriteSlug from '../lib/rewriteSlug'
+// import rewriteSlug from '../lib/rewriteSlug'
 
-const PostsList = ({ blok }) => {
+const PostsList = ({ story }) => {
   let filteredPosts = [];
-  const isResolved = typeof blok.posts[0] !== 'string'
+  const isResolved = typeof story.posts[0] !== 'string'
 
   const data = useStaticQuery(graphql`
     {
@@ -29,7 +29,7 @@ const PostsList = ({ blok }) => {
   `)
   if (!isResolved) {
     filteredPosts = data.posts.edges
-      .filter(p => blok.posts.indexOf(p.node.uuid) > -1);
+      .filter(p => story.posts.indexOf(p.node.uuid) > -1);
 
     filteredPosts = filteredPosts.map((p, i) => {
       const content = p.node.content
@@ -37,13 +37,11 @@ const PostsList = ({ blok }) => {
       p.node.content = newContent
       return p.node
     })
-
-    console.log(filteredPosts)
   }
 
-  const arrayOfPosts = isResolved ? blok.posts : filteredPosts
+  const arrayOfPosts = isResolved ? story.posts : filteredPosts
   return (
-    <div {...sbEditable(blok)}>
+    <div {...sbEditable(story)}>
       <div className="container mx-auto">
         <ul className="flex flex-col justify-center items-center">
           {arrayOfPosts.map(post => {
@@ -63,7 +61,7 @@ const PostsList = ({ blok }) => {
                 <div className="mt-2">
                   <a
                     className="text-2xl text-gray-700 font-bold hover:text-gray-600"
-                    href={`/${rewriteSlug(post.full_slug)}`}
+                    href={`/${post.full_slug}`}
                   >
                     {post.content.title}
                   </a>
@@ -72,7 +70,7 @@ const PostsList = ({ blok }) => {
                 <div className="flex justify-between items-center mt-4">
                   <a
                     className="text-blue-600 hover:underline"
-                    href={`/${rewriteSlug(post.full_slug)}`}
+                    href={`/${post.full_slug}`}
                   >
                     Read more
                   </a>

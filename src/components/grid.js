@@ -2,13 +2,13 @@ import * as React from "react"
 import DynamicComponent from "./dynamicComponent"
 import { sbEditable } from '@storyblok/storyblok-editable'
 
-const Grid = ({ blok }) => {
+const Grid = ({ story }) => {
   return (
-    <div {...sbEditable(blok)}>
+    <div {...sbEditable(story)}>
       <ul className="flex flex-wrap p-8 bg-white container mx-auto">
-        {blok.columns.map(blok => (
-          <li key={blok._uid} className="flex-auto px-2">
-            <DynamicComponent blok={blok} />
+        {story.columns.map(story => (
+          <li key={story._uid} className="flex-auto px-2">
+            <DynamicComponent story={story} />
           </li>
         ))}
       </ul>

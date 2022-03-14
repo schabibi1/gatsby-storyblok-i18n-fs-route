@@ -13,8 +13,8 @@ const IndexPage = ({ data, location }) => {
   story = useStoryblok(story, location)
   console.log(data)
 
-  const components = story.content.body.map(blok => {
-    return (<DynamicComponent blok={blok} key={blok._uid} />)
+  const components = story.content.body.map(story => {
+    return (<DynamicComponent story={story} key={story._uid} />)
   })
 
   return (
