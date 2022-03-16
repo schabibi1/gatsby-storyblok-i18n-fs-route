@@ -26,9 +26,7 @@ export default function StoryblokEntry({ data, location }) {
     if (story.name === 'Home') {
       return story.content.body.map(story => <DynamicComponent story={story} key={story._uid} />)
     }
-    if (story.name !== 'Home') {
-      return <DynamicComponent story={story.content} key={story.content._uid} />
-    }
+    return (story.name !== 'Home' ? <DynamicComponent story={story.content} key={story.content._uid} /> : null)
   }
 
   return (
@@ -63,3 +61,11 @@ export const query = graphql`
     }
   }
 `
+
+export async function config() {
+  return () => {
+    return {
+      defer: true,
+    }
+  }
+}
