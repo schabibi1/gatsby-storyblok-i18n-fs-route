@@ -3,8 +3,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Link from 'gatsby-link'
 import rewriteSlug from '../lib/rewriteSlug'
 
-export default function ArticleTeaser({ story }) {
-  console.log(story)
+export default function ArticleTeaser({ blok }) {
+  console.log(blok)
   const { articles, authors } = useStaticQuery(graphql`
   query Articles {
     articles: allStoryblokEntry(filter: {field_component: {eq: "blogpost"}}) {
@@ -27,7 +27,7 @@ export default function ArticleTeaser({ story }) {
     }
   }
   `)
-  let article = articles.edges.filter(({ node }) => node.full_slug === story.article.cached_url)
+  let article = articles.edges.filter(({ node }) => node.full_slug === blok.article.cached_url)
   let content = article.length ? JSON.parse(article[0].node.content) : {};
   let { author } = content
   let thisAuthor = authors.edges.filter(({ node }) => node.uuid === author)

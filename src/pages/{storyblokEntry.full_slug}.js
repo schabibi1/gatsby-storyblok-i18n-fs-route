@@ -1,18 +1,40 @@
 import * as React from "react"
 import { graphql } from 'gatsby'
-import useStoryblok from "../lib/storyblok"
-import { sbEditable } from "@storyblok/storyblok-editable"
-import DynamicComponent from "../components/dynamicComponent"
+
+import { storyblokInit, apiPlugin, StoryblokComponent, storyblokEditable } from "@storyblok/react";
+import { useStoryblok } from '../lib/storyblok'
+import Teaser from '../components/teaser'
+import Grid from '../components/grid'
+import Feature from '../components/feature'
+import BlogPost from '../components/blogPost'
+import Slide from '../components/slide'
+import ArticleTeaser from '../components/articleTeaser'
+import FeaturedArticles from '../components/featuredArticles'
+import PostsList from '../components/postsList'
 // import rewriteSlug from '../lib/rewriteSlug'
 
 import Layout from "../components/layout"
+
+storyblokInit({
+  use: [apiPlugin],
+  components: {
+    teaser: Teaser,
+    grid: Grid,
+    feature: Feature,
+    blogpost: BlogPost,
+    slide: Slide,
+    'article-teaser': ArticleTeaser,
+    'featured-articles': FeaturedArticles,
+    'posts-list': PostsList
+  }
+});
 
 export default function StoryblokEntry({ data, location }) {
   // let postData = data.posts
   // postData = useStoryblok(postData.edges, location)
 
   let story = data.storyblokEntry
-  story = useStoryblok(story, location)
+  story = useStoryblok(story)
 
   // const fixedSlugs = postData.forEach((entry) => {
   //   const slug = rewriteSlug(entry.node.full_slug)
@@ -24,16 +46,16 @@ export default function StoryblokEntry({ data, location }) {
 
   const Templates = () => {
     if (story.name === 'Home') {
-      return story.content.body.map(story => <DynamicComponent story={story} key={story._uid} />)
+      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
     }
-    return (story.name !== 'Home' ? <DynamicComponent story={story.content} key={story.content._uid} /> : null)
+    return (story.name !== 'Home' ? <StoryblokComponent blok={story.content} key={story.content._uid} /> : null)
   }
 
   return (
     <Layout location={location}>
-      <div {...sbEditable(story.content)}>
+      <div {...storyblokEditable(story.content)}>
         {/* {fixedSlugs} */}
-        <Templates story={story.content} key={story.content._uid} />
+        <Templates blok={story.content} key={story.content._uid} />
       </div>
     </Layout>
   )

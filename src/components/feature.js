@@ -1,16 +1,16 @@
 import * as React from "react"
-import { sbEditable } from "@storyblok/storyblok-editable";
+import { storyblokEditable } from "@storyblok/react";
 import DynamicIcon from './icons/DynamicIcon'
 
-const Feature = ({ story }) => {
+const Feature = ({ blok }) => {
   return (
-    <div {...sbEditable(story)}>
+    <div {...storyblokEditable(blok)}>
       <div className="py-16 max-w-sm p-2 sm:p-10 text-center flex flex-col items-center">
-        <DynamicIcon type={story.icon} />
+        <DynamicIcon type={blok.icon} />
         <div className="px-6 py-4">
-          <div className="font-bold text-xl my-4">{story.name}</div>
+          <div className="font-bold text-xl my-4">{blok.name}</div>
           <p className="text-base text-gray-600">
-            {story.description}
+            {blok.description}
           </p>
         </div>
       </div>

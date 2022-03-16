@@ -1,11 +1,11 @@
 import React from 'react'
-import { sbEditable } from "@storyblok/storyblok-editable";
+import { storyblokEditable } from "@storyblok/react";
 
-const Slider = ({ story }) => {
+const Slider = ({ blok }) => {
   return (
-    <div {...sbEditable(story)}>
+    <div {...storyblokEditable(blok)}>
       <div className="snap-start w-full flex-shrink-0 bg-gray-300">
-        <img className="object-cover w-full h-full" src={story.image} id={story._uid} />
+        <img className="object-cover w-full h-full" src={blok.image} id={blok._uid} />
       </div>
     </div>
   )

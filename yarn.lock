@@ -2173,10 +2173,12 @@
   dependencies:
     storyblok-js-client "^4.2.0"
 
-"@storyblok/storyblok-editable@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@storyblok/storyblok-editable/-/storyblok-editable-1.1.0.tgz#a355a9ea149d862db262e41514efaf260fbdfb28"
-  integrity sha512-D/OtU2O2pjK+dZaTnWqyhlpz8jGnzZ+8DkZg7O+FTf/r5612RyO7jzRyEkS/opOyYuyFHtw1NwkSVCvnYURf1A==
+"@storyblok/react@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@storyblok/react/-/react-1.0.2.tgz#9427030520d8e1f2c3e25241fb9436b122a1ff1f"
+  integrity sha512-+lnXgmT0HlwRwJjrMJxiTlyULjH7he0MhCLECtZZhOvNBQHUa/Eibk7+c+VnOGxPP4dprsn5OaNcyikUT3Y2yA==
+  dependencies:
+    "@storyblok/js" "^1.0.3"
 
 "@swc/helpers@^0.2.11":
   version "0.2.14"

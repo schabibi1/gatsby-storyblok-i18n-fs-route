@@ -1,12 +1,12 @@
 import React from "react"
-import { sbEditable } from "@storyblok/storyblok-editable";
+import { storyblokEditable } from "@storyblok/react";
 import { useStaticQuery, graphql } from "gatsby"
 
 // import rewriteSlug from '../lib/rewriteSlug'
 
-const PostsList = ({ story }) => {
+const PostsList = ({ blok }) => {
   let filteredPosts = [];
-  const isResolved = typeof story.posts[0] !== 'string'
+  const isResolved = typeof blok.posts[0] !== 'string'
 
   const data = useStaticQuery(graphql`
     {
@@ -29,7 +29,7 @@ const PostsList = ({ story }) => {
   `)
   if (!isResolved) {
     filteredPosts = data.posts.edges
-      .filter(p => story.posts.indexOf(p.node.uuid) > -1);
+      .filter(p => blok.posts.indexOf(p.node.uuid) > -1);
 
     filteredPosts = filteredPosts.map((p, i) => {
       const content = p.node.content
@@ -39,9 +39,9 @@ const PostsList = ({ story }) => {
     })
   }
 
-  const arrayOfPosts = isResolved ? story.posts : filteredPosts
+  const arrayOfPosts = isResolved ? blok.posts : filteredPosts
   return (
-    <div {...sbEditable(story)}>
+    <div {...storyblokEditable(blok)}>
       <div className="container mx-auto">
         <ul className="flex flex-col justify-center items-center">
           {arrayOfPosts.map(post => {
