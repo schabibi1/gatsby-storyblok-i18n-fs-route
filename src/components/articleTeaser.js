@@ -4,7 +4,6 @@ import Link from 'gatsby-link'
 import rewriteSlug from '../lib/rewriteSlug'
 
 export default function ArticleTeaser({ blok }) {
-  console.log(blok)
   const { articles, authors } = useStaticQuery(graphql`
   query Articles {
     articles: allStoryblokEntry(filter: {field_component: {eq: "blogpost"}}) {

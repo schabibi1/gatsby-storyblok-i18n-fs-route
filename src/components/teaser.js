@@ -3,7 +3,6 @@ import { render } from "storyblok-rich-text-react-renderer"
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
 const Teaser = ({ blok }) => {
-  console.log(blok)
   const body = blok &&
     blok.body &&
     blok.body.map(childBlok => <StoryblokComponent blok={childBlok} key={childBlok._uid} />)

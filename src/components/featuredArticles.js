@@ -3,7 +3,6 @@ import { storyblokEditable } from "@storyblok/react";
 import ArticleTeaser from './articleTeaser'
 
 const FeaturedArticles = ({ blok }) => {
-  console.log(blok)
   return (
     <div {...storyblokEditable(blok)}>
       <div className="py-8 mb-6 container mx-auto text-left" key={blok._uid}>
