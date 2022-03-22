@@ -4,5 +4,6 @@ exports.onPreBuild = async ({ actions }) => {
   createRedirect({
     fromPath: `/en/blog/*`,
     toPath: `/blog/*`,
+    force: true
   });
 };
