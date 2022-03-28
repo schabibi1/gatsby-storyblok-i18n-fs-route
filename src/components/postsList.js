@@ -2,7 +2,7 @@ import React from "react"
 import { storyblokEditable } from "@storyblok/react";
 import { useStaticQuery, graphql } from "gatsby"
 
-// import rewriteSlug from '../lib/rewriteSlug'
+import rewriteSlug from '../lib/rewriteSlug'
 
 const PostsList = ({ blok }) => {
   let filteredPosts = [];
@@ -61,7 +61,7 @@ const PostsList = ({ blok }) => {
                 <div className="mt-2">
                   <a
                     className="text-2xl text-gray-700 font-bold hover:text-gray-600"
-                    href={`/${post.full_slug}`}
+                    href={`/${rewriteSlug(post.full_slug)}`}
                   >
                     {post.content.title}
                   </a>
@@ -70,7 +70,7 @@ const PostsList = ({ blok }) => {
                 <div className="flex justify-between items-center mt-4">
                   <a
                     className="text-blue-600 hover:underline"
-                    href={`/${post.full_slug}`}
+                    href={`/${rewriteSlug(post.full_slug)}`}
                   >
                     Read more
                   </a>

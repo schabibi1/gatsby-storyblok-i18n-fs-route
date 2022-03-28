@@ -1,10 +1,9 @@
 import Link from 'gatsby-link'
 import React from "react"
-// import rewriteSlug from '../lib/rewriteSlug'
+import rewriteSlug from '../lib/rewriteSlug'
 
 const Nav = ({ settings, lang }) => (
   <header className="w-full bg-white">
-    <>{console.log(settings)}</>
     <nav className="" role="navigation">
       <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
         <div className="mr-4 md:mr-8">
@@ -36,8 +35,7 @@ const Nav = ({ settings, lang }) => (
             {settings &&
               settings.content.main_navi.map((navitem, index) => (
                 <li key={index}>
-                  {/* <>{console.log(rewriteSlug(navitem.link.cached_url))}</> */}
-                  <Link to={`/${navitem.link.cached_url}`} prefetch="true" className="block px-4 py-1 md:p-2 lg:px-8">
+                  <Link to={`/${rewriteSlug(navitem.link.cached_url)}`} prefetch="true" className="block px-4 py-1 md:p-2 lg:px-8">
                     {navitem.name}
                   </Link>
                 </li>

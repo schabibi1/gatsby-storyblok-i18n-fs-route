@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { graphql } from 'gatsby'
-import config from '../../gatsby-config'
+import configuration from '../../gatsby-config'
 
 import { storyblokInit, apiPlugin, StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import { useStoryblok } from '../lib/storyblok'
@@ -17,7 +17,7 @@ import PostsList from '../components/postsList'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const sbConfig = config.plugins.find((item) => item.resolve === 'gatsby-source-storyblok')
+const sbConfig = configuration.plugins.find((item) => item.resolve === 'gatsby-source-storyblok')
 
 storyblokInit({
   accessToken: sbConfig.options.accessToken,
@@ -54,7 +54,7 @@ export default IndexPage
 
 export const query = graphql`
   query HomeQuery {
-    storyblokEntry(full_slug: { eq: "en/" }) {
+    storyblokEntry(full_slug: { eq: "home" }) {
       content
       name
       id
