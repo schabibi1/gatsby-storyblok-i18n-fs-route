@@ -67,4 +67,4 @@ Take a look at Gatsby.js documentation to learn more about Gatsby.js.
 To understand querying data, take a look at GraphQL documentation and Gatsby.js documentation.
 
 - [GraohQL: Introduction to GraphQL](https://graphql.org/learn/)
-- [Gatsby.js: Querying Data](https://www.gatsbyjs.com/docs/how-to/querying-data/page-query/)# gatsby-storyblok-workshop
+- [Gatsby.js: Querying Data](https://www.gatsbyjs.com/docs/how-to/querying-data/page-query/)
