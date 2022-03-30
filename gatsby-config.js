@@ -39,7 +39,7 @@ module.exports = {
       options: {
         accessToken: '9X0kQ6j9hJFcTqXBLoQAEgtt',
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
-        languages: ['de', 'at'] // Optional parameter. Omission will retrieve all languages by default.
+        languages: ['de', 'en'] // Optional parameter. Omission will retrieve all languages by default.
       }
     }
   ],
