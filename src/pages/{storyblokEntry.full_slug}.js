@@ -68,7 +68,7 @@ export async function config() {
 
   return ({ params }) => {
     return {
-      defer: params.full_slug !== 'de' ? true : false,
+      defer: params.full_slug !== 'en' ? true : false,
     }
   }
 }
